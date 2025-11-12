@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <div class="heading">
+        <div class="menuBtn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="headingName">
+            <h1>Oasis Analysis Tool</h1>
+        </div>
+    </div>
+    <div class="sideMenu">
+        <a href="home.html">Home</a>
+        <a href="analysis.html">Analysis</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <div class="uploadSection">
+        <label for="inputFile">
+            <input type="file" accept=".csv, .json, .txt" id="inputFile" hidden>
+            <div class="dragAndDrop">
+                <img src="../assets/uploadImg.png" id="uploadImg">
+                <p>Drag and Drop to Upload File</p>
+            </div>
+        </label>
+        <div class="inputBtnSection">
+            <span class="orText">or:       </span>
+            <label for="inputButton" class = "inputButton">
+                <input type="file" accept=".csv, .json, .txt" id="inputButton" hidden>
+                <p>Click to Browse Files</p>
+            </label>
+        </div>
+    </div>
+</body>
+<script src="../../main.js"></script>
+</html>

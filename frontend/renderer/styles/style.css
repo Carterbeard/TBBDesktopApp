@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(139, 196, 222);
+}
+
+.menuBtn {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 1000;
+    padding-left: 5px;
+}
+.menuBtn span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: #333;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+
+.sideMenu {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    height: 100%;
+    background: #222;
+    color: white;
+    padding-top: 70px;
+    transition: 0.3s;
+}
+.sideMenu a {
+    display: block;
+    padding: 15px;
+    padding-left: 25px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.3s;
+}
+.sideMenu a:hover {
+    background: #444;
+}
+.sideMenu.active {
+    left: 0;
+}
+
+.headingName {
+    text-align: center;
+}
+
+.uploadSection {
+    width: 80%;
+    background: rgb(61, 114, 141);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 30px auto;
+    flex-direction: column;
+}
+
+.dragAndDropContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.dragAndDrop {
+    width: 100%;
+    background: rgb(22, 95, 130);
+    color: whitesmoke;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#uploadImg {
+    width: 175px;
+    height: 175px;
+    user-select: none;
+}
+
+.inputBtnSection {
+    text-align: center;
+    color: whitesmoke;
+    margin-top: 20px;
+}
+
+.inputButton {
+    display: inline-block;
+    background: rgba(81, 218, 180, 0.9);
+    padding: 0px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.inputButton:hover {
+    background: rgba(81, 218, 180, 1);
+}
+
+.orText{
+    padding: 20px;
+}
