@@ -10,20 +10,10 @@ const createWindow = () => {
 
     win.loadFile('renderer/pages/home.html')
 
-    setInterval(() => {
-        win.reload();
-    }, 3000);
+    
 }
+
 
 app.whenReady().then(() => {
     createWindow()
 })
-
-function toggleMenu() {
-    document.querySelector(".sideMenu").classList.toggle("active");
-    }
-
-function processData() {
-    window.location.href = "analysis.html";
-    
-}

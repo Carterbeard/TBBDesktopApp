@@ -161,4 +161,22 @@ body {
 
 
 /* analysis page */
+.progressContainer {
+    display: block;
+    position: fixed;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progressBar {
+    width: 0%;
+    height: 100%;
+    background: #4CAF50;
+    transition: width .1s linear;
+}
 
