@@ -1,5 +1,7 @@
 const { app, BrowserWindow } = require('electron')
 
+let win;
+
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 800,
@@ -7,6 +9,10 @@ const createWindow = () => {
     })
 
     win.loadFile('renderer/pages/home.html')
+
+    setInterval(() => {
+        win.reload();
+    }, 3000);
 }
 
 app.whenReady().then(() => {
@@ -16,3 +22,8 @@ app.whenReady().then(() => {
 function toggleMenu() {
     document.querySelector(".sideMenu").classList.toggle("active");
     }
+
+function processData() {
+    window.location.href = "analysis.html";
+    
+}

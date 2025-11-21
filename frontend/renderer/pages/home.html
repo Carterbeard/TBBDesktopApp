@@ -16,6 +16,9 @@
         <div class="headingName">
             <h1>Oasis Analysis Tool</h1>
         </div>
+        <div class="bwbLogo">
+            <img src="../assets/BwB Symbol.svg" alt="icon">
+        </div>
     </div>
     <div class="sideMenu">
         <a href="home.html">Home</a>
@@ -24,13 +27,13 @@
     </div>
 
     <div class="uploadSection">
-        <label for="inputFile">
+            <label for="inputFile">
             <input type="file" accept=".csv, .json, .txt" id="inputFile" hidden>
             <div class="dragAndDrop">
-                <img src="../assets/uploadImg.png" id="uploadImg">
+                <img src="../assets/uploadImg.png" id="uploadImg" alt="upload icon">
                 <p>Drag and Drop to Upload File</p>
             </div>
-        </label>
+            </label>
         <div class="inputBtnSection">
             <span class="orText">or:       </span>
             <label for="inputButton" class = "inputButton">
@@ -38,6 +41,9 @@
                 <p>Click to Browse Files</p>
             </label>
         </div>
+    </div>
+    <div class="processButton">
+        <button onclick="processData()" class = "processButtonDesign">Process data</button>
     </div>
 </body>
 <script src="../../main.js"></script>

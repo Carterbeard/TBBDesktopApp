@@ -2,28 +2,31 @@ body {
     margin: 0;
     padding: 0;
     background: rgb(139, 196, 222);
+    font-family: "Open Sans", sans-serif;
 }
 
 .menuBtn {
     position: fixed;
+    top: 30px;
+    left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 60px;
-    height: 36px;
+    width: clamp(40px, 8vw, 85px);
+    height: clamp(30px, 6vw, 60px);
     cursor: pointer;
     z-index: 1000;
     padding-left: 5px;
 }
 .menuBtn span {
+    position: relative;
     display: block;
-    height: 4px;
+    height: clamp(3px, 0.6vw, 5.5px);
     width: 100%;
     background: #333;
     border-radius: 2px;
     transition: 0.3s;
 }
-
 
 .sideMenu {
     position: fixed;
@@ -33,7 +36,7 @@ body {
     height: 100%;
     background: #222;
     color: white;
-    padding-top: 70px;
+    padding-top: clamp(80px,8vw, 120px);
     transition: 0.3s;
 }
 .sideMenu a {
@@ -53,10 +56,31 @@ body {
 }
 
 .headingName {
+    color: rgb(230, 230, 230);
+    font-size: 25px;
     text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
 }
 
-.uploadSection {
+.bwbLogo{
+    position: fixed;
+    top: clamp(15px,5vw,25px);
+    right: clamp(15px,5vw,25px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: clamp(60px, 12vw, 140px);
+    height: clamp(60px, 12vw, 140px);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.uploadSection{
+    font-weight: 600;
+    font-size: 20px;
+    max-width: 760px; 
     width: 80%;
     background: rgb(61, 114, 141);
     display: flex;
@@ -68,27 +92,26 @@ body {
     flex-direction: column;
 }
 
-.dragAndDropContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
 .dragAndDrop {
+    outline: 1px solid black;
+    display: block;
     width: 100%;
+    max-width: 700px;
+    min-width: 500px;
+    padding: 30px;
     background: rgb(22, 95, 130);
     color: whitesmoke;
-    padding: 30px;
     border-radius: 20px;
     text-align: center;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 #uploadImg {
     width: 175px;
     height: 175px;
     user-select: none;
+    object-fit: contain;
 }
 
 .inputBtnSection {
@@ -113,3 +136,29 @@ body {
 .orText{
     padding: 20px;
 }
+
+.processButton{
+    text-align: center;
+}
+
+.processButtonDesign{
+    border: none;
+    outline: black solid 1.5px;
+    background: rgba(0, 226, 92,0.9);
+    color: whitesmoke;
+    padding: 10px;
+    width:40%;
+    min-height: 80px;
+    font-size: 40px;
+    font-weight: 600;
+}
+.processButtonDesign:hover{
+    background: rgb(11, 218, 94);
+}
+
+
+
+
+
+/* analysis page */
+
