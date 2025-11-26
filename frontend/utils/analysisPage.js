@@ -30,7 +30,9 @@ function setProgressInterval(progressBar, progressContainer) {
         if (currentProgress > 100) {
             clearInterval(interval);
             const progressContainer = document.getElementsByClassName("progressContainer")[0];
+            const figures = document.querySelector(".imageProduced");
             progressContainer.style.display = "none";
+            figures.style.visibility = "visible";
             localStorage.setItem("progressComplete", "true");
         }
         

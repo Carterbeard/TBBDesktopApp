@@ -10,9 +10,6 @@ const createWindow = () => {
 
     win.loadFile('renderer/pages/home.html')
 
-    setInterval(()=>{
-        win.reload();
-    },3000);
 }
 
 
