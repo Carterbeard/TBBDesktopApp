@@ -1,4 +1,4 @@
-body {
+body{
     margin: 0;
     padding: 0;
     background: rgb(139, 196, 222);
@@ -163,15 +163,12 @@ body {
 /* analysis page */
 .progressContainer {
     display: block;
-    position: fixed;
-    top: 18%;
-    left: 50%;
-    transform: translateX(-50%);
     width: 60%;
     height: 20px;
     background: #ddd;
     border-radius: 10px;
     overflow: hidden;
+    margin: 20px auto;
 }
 .progressBar {
     width: 0%;
@@ -179,4 +176,33 @@ body {
     background: #4CAF50;
     transition: width .1s linear;
 }
+
+.imageProduced {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+.fig1 { grid-column: 1; grid-row: 1; }
+.fig2 { grid-column: 2; grid-row: 1; }
+.fig3 { grid-column: 1 / span 2; grid-row: 2; }
+.fig4 { grid-column: 1 / span 2; grid-row: 3; }
+.imageProduced img {
+    display: block;
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+}
+.imageProduced h3{
+    padding-left: clamp(50px,8vw, 150px);
+    font-size: clamp(25px, 3vw, 50px);
+}
+.fig4 img {
+    width: 60%;
+}
+
+
 
