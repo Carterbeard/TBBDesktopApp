@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    padding: 0;
+    padding: 10px;
     background: rgb(139, 196, 222);
     font-family: "Open Sans", sans-serif;
 }
@@ -113,6 +113,9 @@ body{
     user-select: none;
     object-fit: contain;
 }
+#uploadImg.active {
+    display: none;
+}
 
 .inputBtnSection {
     text-align: center;
@@ -156,6 +159,53 @@ body{
     background: rgb(11, 218, 94);
 }
 
+.parameterInput{
+    display:none;
+}
+.parameterInput.active{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 30px;
+}
+
+.dataInput {
+    container-type: inline-size;
+    width: 200px;
+    box-sizing: border-box; 
+}
+.dataInput input {
+    width: 100%;
+    color: whitesmoke;
+    border: 2px solid #e8e8e8;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgb(22, 95, 130);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-sizing: border-box;
+}
+.dataInput input::placeholder {
+    color: rgba(245, 245, 245, 0.525);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.dataInput input:focus {
+    outline-color: white;
+    background: rgb(22, 95, 130);
+    color: #e8e8e8;
+    box-shadow: 5px 5px #888888;
+}
+#datasetName::placeholder {
+    font-size: clamp(18px, 7cqw, 22px);
+}
+#catchmentThreshold::placeholder {
+    font-size: clamp(12px, 5cqw, 16px); 
+}
 
 /* analysis page */
 .progressContainer {

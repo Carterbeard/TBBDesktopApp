@@ -31,15 +31,29 @@
             <input type="file" accept=".csv, .json, .txt" id="inputFile" hidden>
             <div class="dragAndDrop">
                 <img src="../assets/uploadImg.png" id="uploadImg" alt="upload icon">
-                <p>Drag and Drop to Upload File</p>
+                <p id="dragP">Drag and Drop to Upload File</p>
             </div>
             </label>
-        <div class="inputBtnSection">
+        <div class="inputBtnSection" id="inputBtnSection">
             <span class="orText">or:       </span>
             <label for="inputButton" class = "inputButton">
                 <input type="file" accept=".csv, .json, .txt" id="inputButton" hidden>
                 <p>Click to Browse Files</p>
             </label>
+        </div>
+        <div class="inputBtnSection" id ="removeFileBtn" hidden>
+            <label for="removeFileButton" class = "inputButton">
+                <button id = "removeFileButton" onclick="removeFile()" hidden></button>
+                <p>Click to Remove File</p>
+            </label>
+        </div>
+    </div>
+    <div class="parameterInput">
+        <div class = "dataInput">
+            <input type="text" placeholder="Dataset Name" id ="datasetName">
+        </div>
+        <div class="dataInput">
+            <input type="text" placeholder="Catchment Threshold Area" id="catchmentThreshold">
         </div>
     </div>
     <div class="processButton">
