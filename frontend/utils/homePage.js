@@ -30,6 +30,7 @@ function removeFile(){
     document.getElementById("dragP").innerHTML= "Drag and Drop to Upload File";
     document.getElementById("inputBtnSection").hidden = false;
     document.getElementById("removeFileBtn").hidden = true;
+    toggleParameters()
 }
 
 inputFile.addEventListener("change",()=>{
@@ -43,3 +44,4 @@ dropZone.addEventListener("drop", e => {
     toggleParameters();
     toggleWhenActiveFile();
 });
+
