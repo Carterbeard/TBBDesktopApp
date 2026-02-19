@@ -9,8 +9,6 @@ const createWindow = () => {
     })
 
     win.loadFile('renderer/pages/home.html')
-        
-
 }
 
 

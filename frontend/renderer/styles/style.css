@@ -1,14 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+
 body{
     margin: 0;
     padding: 10px;
-    background: rgb(139, 196, 222);
+    background-color: #040032;
     font-family: "Open Sans", sans-serif;
 }
 
+.heading {
+    display:grid;                        
+    grid-template-columns: 1fr auto 1fr; 
+    justify-content: space-between;
+    padding: 10px 20px;
+    padding-bottom: 0px;
+}
+
 .menuBtn {
-    position: fixed;
-    top: 30px;
-    left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,14 +24,16 @@ body{
     height: clamp(30px, 6vw, 60px);
     cursor: pointer;
     z-index: 1000;
+    flex-shrink: 0;
     padding-left: 5px;
+    margin-top: 15px;
 }
 .menuBtn span {
     position: relative;
     display: block;
-    height: clamp(3px, 0.6vw, 5.5px);
+    height: clamp(5px, 0.6vw, 7px);
     width: 100%;
-    background: #333;
+    background: rgba(245, 245, 245, 0.892);
     border-radius: 2px;
     transition: 0.3s;
 }
@@ -31,10 +41,10 @@ body{
 .sideMenu {
     position: fixed;
     top: 0;
-    left: -200px;
-    width: 200px;
+    left: -220px;
+    width: 220px;
     height: 100%;
-    background: #222;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     padding-top: clamp(80px,8vw, 120px);
     transition: 0.3s;
@@ -49,32 +59,35 @@ body{
     transition: background 0.3s;
 }
 .sideMenu a:hover {
-    background: #444;
+    background: rgba(255, 255, 255, 0.3);
 }
 .sideMenu.active {
     left: 0;
 }
 
 .headingName {
-    color: rgb(230, 230, 230);
-    font-size: 25px;
+    font-family: "Fjalla One", sans-serif;
+    color: whitesmoke;
+    text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.245);
+    font-size: clamp(15px,5vw,45px);
     text-align: center;
-    margin: 0;
+    margin: -25px;
     padding: 0;
     line-height: 1.1;
+    cursor: default;
+    user-select: none;
 }
 
 .bwbLogo{
-    position: fixed;
-    top: clamp(15px,5vw,25px);
-    right: clamp(15px,5vw,25px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: clamp(60px, 12vw, 140px);
     height: clamp(60px, 12vw, 140px);
-    cursor: pointer;
+    cursor: default;
     z-index: 1000;
+    flex-shrink: 0;  
+    margin-left: auto;
 }
 
 .uploadSection{
@@ -82,7 +95,9 @@ body{
     font-size: 20px;
     max-width: 760px; 
     width: 80%;
-    background: rgb(61, 114, 141);
+    background: linear-gradient(145deg, #1a4a6b, #1a3a5c);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(6, 186, 247, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,23 +108,30 @@ body{
 }
 
 .dragAndDrop {
-    outline: 1px solid black;
     display: block;
     width: 100%;
     max-width: 700px;
     min-width: 500px;
     padding: 30px;
-    background: rgb(22, 95, 130);
+    background: linear-gradient(145deg, #0f3a5c, #0a2a4a);
+    border: 2px dashed rgba(6, 186, 247, 0.4);
+    outline: none;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
     color: whitesmoke;
     border-radius: 20px;
     text-align: center;
     margin: 0 auto;
     box-sizing: border-box;
+    &:hover{
+        cursor: pointer;
+        border-color: rgba(82, 225, 177, 0.7);
+        transition: all 0.3s ease;
+    }
 }
 
 #uploadImg {
-    width: 175px;
-    height: 175px;
+    width: 200px;
+    height: 200px;
     user-select: none;
     object-fit: contain;
 }
@@ -126,37 +148,67 @@ body{
 .inputButton {
     display: inline-block;
     background: rgba(81, 218, 180, 0.9);
+    border-radius: 100px;
     padding: 0px 20px;
     cursor: pointer;
     margin-top: 10px;
-    transition: background 0.3s;
-}
-
-.inputButton:hover {
-    background: rgba(81, 218, 180, 1);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.1s;
+    &:hover{
+        background: rgba(81, 218, 180, 1);
+        box-shadow: 2px 5px 40px -10px  rgba(81, 218, 180, 1);
+    }
+    &:active{
+        transform: scale(0.97);
+    }
 }
 
 .orText{
     padding: 20px;
+    cursor: default;
+    user-select: none;
 }
 
 .processButton{
+    display: none;
+}
+.processButton.active{
+    display: block;
     text-align: center;
 }
 
-.processButtonDesign{
-    border: none;
-    outline: black solid 1.5px;
-    background: rgba(0, 226, 92,0.9);
+.processButtonDesign {
+    border: 1px solid #0fd850;
+    background: linear-gradient(125deg,#24b05e,#12ae44);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15);
     color: whitesmoke;
-    padding: 10px;
-    width:40%;
-    min-height: 80px;
+    width: 10em;
+    height: 2em;
+    border-radius: 10em;
     font-size: 40px;
+    font-family: inherit;
     font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
-.processButtonDesign:hover{
-    background: rgb(11, 218, 94);
+.processButtonDesign::before {
+    content: '';
+    width: 0;
+    height: 2em;
+    border-radius: 10em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: 1s ease;
+    display: block;
+    z-index: -1;
+}
+.processButtonDesign:hover::before {
+    width: 10em;
+}
+.processButton:active{
+    transform: scale(0.98);
 }
 
 .parameterInput{
@@ -179,14 +231,18 @@ body{
 .dataInput input {
     width: 100%;
     color: whitesmoke;
-    border: 2px solid #e8e8e8;
+    border: 2px solid rgba(6, 186, 247, 0.4);
     padding: 15px;
     border-radius: 10px;
-    background: rgb(22, 95, 130);
+    background: linear-gradient(145deg, #0f3a5c, #0a2a4a);
     font-size: 18px;
     font-weight: bold;
     text-align: center;
     box-sizing: border-box;
+}
+.dataInput input:hover{
+    border-color: rgba(82, 225, 177, 0.7);
+    transition: all 0.3s ease;
 }
 .dataInput input::placeholder {
     color: rgba(245, 245, 245, 0.525);
@@ -195,10 +251,9 @@ body{
     text-overflow: ellipsis;
 }
 .dataInput input:focus {
-    outline-color: white;
-    background: rgb(22, 95, 130);
+    outline-color: whitesmoke;
     color: #e8e8e8;
-    box-shadow: 5px 5px #888888;
+    box-shadow: 5px 5px rgb(58, 159, 125);
 }
 #datasetName::placeholder {
     font-size: clamp(18px, 7cqw, 22px);
@@ -233,10 +288,10 @@ body{
     align-items: center;
     visibility: hidden;
 }
-.fig1 { grid-column: 1; grid-row: 1; }
-.fig2 { grid-column: 2; grid-row: 1; }
-.fig3 { grid-column: 1 / span 2; grid-row: 2; }
-.fig4 { grid-column: 1 / span 2; grid-row: 3; }
+.baseMapFigure { grid-column: 1 / span 2; grid-row: 1; }
+.networkDAG { grid-column: 1 / span 2; grid-row: 2; }
+.dataMisfitFigure { grid-column: 1; grid-row: 3; }
+.predictedMisfitFigure { grid-column: 2; grid-row: 3; }
 .imageProduced img {
     display: block;
     width: 80%;
@@ -247,9 +302,10 @@ body{
 .imageProduced h3{
     padding-left: clamp(50px,8vw, 150px);
     font-size: clamp(25px, 3vw, 50px);
+    color: whitesmoke;
 }
-.fig4 img {
-    width: 60%;
+.baseMapFigure img {
+    width: 80vw;
 }
 
 
