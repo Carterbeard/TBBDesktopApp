@@ -69,7 +69,7 @@ body{
     font-family: "Fjalla One", sans-serif;
     color: whitesmoke;
     text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.245);
-    font-size: clamp(15px,5vw,45px);
+    font-size: clamp(10px,5vw,45px);
     text-align: center;
     margin: -25px;
     padding: 0;
@@ -109,9 +109,7 @@ body{
 
 .dragAndDrop {
     display: block;
-    width: 100%;
-    max-width: 700px;
-    min-width: 500px;
+    width: clamp(300px,50vw,600px);
     padding: 30px;
     background: linear-gradient(145deg, #0f3a5c, #0a2a4a);
     border: 2px dashed rgba(6, 186, 247, 0.4);
