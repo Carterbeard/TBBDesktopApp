@@ -15,6 +15,10 @@ function toggleParameters() {
     document.querySelector(".parameterInput").classList.toggle("active", inputFile.files.length>0);
 }
 
+function toggleProcessButton(){
+    document.querySelector(".processButton").classList.toggle("active", inputFile.files.length>0);
+}
+
 function toggleWhenActiveFile(){
     const fileName = inputFile.files[0].name;
 
@@ -25,21 +29,26 @@ function toggleWhenActiveFile(){
 }
 
 function removeFile(){
-    inputFile.value=""
+    inputFile.value="";
     document.getElementById("uploadImg").classList.toggle("active");
     document.getElementById("dragP").innerHTML= "Drag and Drop to Upload File";
     document.getElementById("inputBtnSection").hidden = false;
     document.getElementById("removeFileBtn").hidden = true;
+    toggleParameters();
+    toggleProcessButton();
 }
 
 inputFile.addEventListener("change",()=>{
-    toggleParameters()
-    toggleWhenActiveFile()
+    toggleProcessButton();
+    toggleParameters();
+    toggleWhenActiveFile();
 });
 dropZone.addEventListener("dragover", e => e.preventDefault());
 dropZone.addEventListener("drop", e => {
     e.preventDefault();
     inputFile.files = e.dataTransfer.files;
+    toggleProcessButton();
     toggleParameters();
     toggleWhenActiveFile();
 });
+
