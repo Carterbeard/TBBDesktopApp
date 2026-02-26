@@ -1,0 +1,71 @@
+# ============================================================================
+# OASIS Desktop Application - Backend Requirements
+# ============================================================================
+
+# Core Data Processing
+# ============================================================================
+pandas==2.1.3
+numpy==1.26.2
+
+# Geospatial Processing
+# ============================================================================
+geopandas==0.14.1
+shapely==2.0.2
+pyproj==3.6.1
+
+# Visualization
+# ============================================================================
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Network Analysis
+# ============================================================================
+networkx==3.2.1
+
+# Data Validation
+# ============================================================================
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Configuration
+# ============================================================================
+python-dotenv==1.0.0
+
+# Logging (Optional - for structured logging)
+# ============================================================================
+# Uncomment if you want structured logging with extra features
+# structlog==23.2.0
+
+# API Framework
+# ============================================================================
+fastapi==0.115.7
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+PyJWT==2.11.0
+passlib==1.7.4
+email-validator==2.3.0
+
+# Testing
+# ============================================================================
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-asyncio==0.21.1
+
+# PDF Generation (Optional - for PDF exports)
+# ============================================================================
+# Uncomment if you want PDF report generation
+# reportlab==4.0.7
+
+# Additional Utilities
+# ============================================================================
+# For image processing (if needed)
+pillow==10.1.0
+
+# Optional local SQLite browser UI (for inspecting jobs.db)
+# sqlite-web==0.6.4
+
+# For Excel file support (optional)
+# openpyxl==3.1.2
+
+# For advanced data interpolation (optional)
+# scipy==1.11.4
