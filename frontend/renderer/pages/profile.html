@@ -7,10 +7,18 @@
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-    <div class="menuBtn" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="heading">
+        <div class="menuBtn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="headingName">
+            <h1>Profile</h1>
+        </div>
+        <div class="bwbLogo">
+            <img src="../assets/BwB Symbol Dark.svg" alt="icon">
+        </div>
     </div>
     <div class="sideMenu">
         <a href="home.html">Home</a>
@@ -18,7 +26,68 @@
         <a href="profile.html">Profile</a>
     </div>
 
-    
+    <!-- Whole Profile Container -->
+    <div id="authContainer">
+        <h2>OASIS Profile</h2>
+
+        <!-- Tab buttons with login/register -->
+        <div class="tabBar">
+            <button class="tabBtn active" data-target="loginPanel">Login</button>
+            <!-- Login panel is intially opened -->
+            <button class="tabBtn"        data-target="regPanel">Register</button>
+        </div>
+
+        <!-- Login panel -->
+        <div id="loginPanel" class="formPanel active">
+            <h3>User Login:</h3>
+            <p class="subtitle">Sign in to continue</p>
+            <form id="loginForm">
+            <div class="field">
+                <label class="fieldLabel" for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" placeholder="user@example.com" required>
+            </div>
+            <div class="field">
+                <label class="fieldLabel" for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="••••••••" required>
+            </div>
+            <button type="submit">Login</button>
+            </form>
+
+            <button class="switchLink" onclick="switchTab('regPanel')">Create a new account</button>
+        </div>
+
+        <!-- Register panel -->
+        <div id="regPanel" class="formPanel">
+            <h3>Create account:</h3>
+            <p class="subtitle">Sign up to save data</p>
+            <form id="regForm">
+            <div class="field">
+                <label class="fieldLabel" for="regName">Full Name</label>
+                <input type="text" id="regName" placeholder="Full Name">
+            </div>
+            <div class="field">
+                <label class="fieldLabel" for="regEmail">Email</label>
+                <input type="email" id="regEmail" placeholder="user@example.com" required>
+            </div>
+            <div class="field">
+                <label class="fieldLabel" for="regPassword">Password</label>
+                <input type="password" id="regPassword" placeholder="Password (min 8 characters)" required>
+            </div>
+            <button type="submit">Register</button>
+            </form>
+
+            <button class="switchLink" onclick="switchTab('loginPanel')">Already have an account?</button>
+        </div>
+
+        <!--Error/success msg output-->
+        <p id="errorMsg"></p>
+    </div>
+    <div id="profileContainer">
+        <p class="welcomeLine">Welcome, <span id="profileName"></span></p>
+        <p class="profileEmail" id="profileEmail"></p>
+        <button class="logoutBtn" id="logoutBtn">Logout</button>
+    </div>
 </body>
+<script src="../../utils/api.js"></script>
 <script src="../../utils/profilePage.js"></script>
 </html>
