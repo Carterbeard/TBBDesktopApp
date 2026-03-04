@@ -23,7 +23,7 @@ body{
     width: clamp(40px, 8vw, 85px);
     height: clamp(30px, 6vw, 60px);
     cursor: pointer;
-    z-index: 1000;
+    z-index: 10001;
     flex-shrink: 0;
     padding-left: 5px;
     margin-top: 15px;
@@ -48,6 +48,7 @@ body{
     color: white;
     padding-top: clamp(80px,8vw, 120px);
     transition: 0.3s;
+    z-index: 10000;
 }
 .sideMenu a {
     display: block;
@@ -57,6 +58,7 @@ body{
     text-decoration: none;
     color: white;
     transition: background 0.3s;
+    z-index: 10000;
 }
 .sideMenu a:hover {
     background: rgba(255, 255, 255, 0.3);
@@ -260,6 +262,14 @@ body{
     font-size: clamp(12px, 5cqw, 16px); 
 }
 
+
+
+
+
+
+
+
+
 /* analysis page */
 .progressContainer {
     display: block;
@@ -308,3 +318,195 @@ body{
 
 
 
+
+
+
+
+
+/* profile page */
+#auth-container {
+        width: 100%;
+        max-width: 550px;
+        margin: 0.5rem auto;
+        background: linear-gradient(145deg, #1a4a6b, #1a3a5c);
+        box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15);
+        border: 2px solid #0e1d47;
+        position: relative;
+        overflow: hidden;
+        font-family: 'DM Mono', monospace;
+    }
+#auth-container h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e0e0e0cd;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1.8rem;
+    margin-top: 0;
+    border-bottom: 2px solid #0e1d47;
+}
+
+
+.tab-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.tab-btn {
+    padding: 1.4rem;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: none;
+    color: #555;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s, background 0.2s;
+}
+.tab-btn.active {
+    color: #e8c96e;
+    background: #0e1d47a9;
+}
+.tab-btn:not(.active):hover {
+    color: #888;
+    background: #0e1d47;
+}
+.tab-btn:not(.active){
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-panel {
+    padding: 2.5rem 2rem;
+    background: #0e1d47a9;
+    display: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: none;
+}
+.form-panel.active {
+    display: block;
+    animation: slideIn 0.5s ease forwards;
+}
+@keyframes slideIn {
+    from { opacity: 0.5;}
+    to   { opacity: 1;}
+}
+.form-panel h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: #f0f0f0;
+    font-weight: 400;
+    margin-bottom: 0.35rem;
+}
+.form-panel .subtitle {
+    font-size: 0.68rem;
+    color: #4c4c4c;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+#auth-container input[type="text"],
+#auth-container input[type="email"],
+#auth-container input[type="password"] {
+    display: block;
+    width: 93%;
+    background: #0a0a0a;
+    border: 1px solid #252525;
+    color: #e0e0e0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+#auth-container input:focus { 
+    border-color: #e8c96e; 
+}
+#auth-container input::placeholder { 
+    color: #333; 
+}
+
+.field {
+    margin-bottom: 1.1rem;
+}
+.field-label {
+    display: block;
+    font-size: 0.63rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #b1b1b1;
+    margin-bottom: 0.45rem;
+}
+
+#auth-container button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.9rem;
+    background: #e8c96e;
+    color: #0a0a0a;
+    border: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+#auth-container button[type="submit"]:hover { 
+    background: #e8ca8a;
+    border: 1.5px solid white;
+    padding: 0.8rem;
+}
+#auth-container button[type="submit"]:active { 
+    transform: scale(0.99); 
+}
+
+.switch-link {
+    display: block;
+    width: 100%;
+    margin-top: 1.2rem;
+    padding: 0.75rem;
+    background: transparent;
+    border: 1px solid #b1b1b1;
+    color: #b1b1b1;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    text-transform: uppercase;
+}
+.switch-link:hover { 
+    border-color: #444; color: #888; 
+}
+
+#errorMsg {
+    display: flex;              /* makes align-items actually work */
+    justify-content: center;    /* horizontal */
+    align-items: center;  
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-align: center;
+    align-items: center;
+    padding: 1rem 1rem 1rem;
+    min-height: 2.5rem;
+    margin: 0;
+    color: #e05c5c;
+}
+#errorMsg.success { 
+    color: #6ec97a; 
+}
+#errorMsg:empty{ 
+    display: none; 
+}
