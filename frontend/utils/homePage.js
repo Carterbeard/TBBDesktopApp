@@ -21,7 +21,6 @@ function toggleProcessButton(){
 
 function toggleWhenActiveFile(){
     const fileName = inputFile.files[0].name;
-
     document.getElementById("uploadImg").classList.toggle("active");
     document.getElementById("dragP").innerHTML= "File added: " + fileName;
     document.getElementById("inputBtnSection").hidden = true;

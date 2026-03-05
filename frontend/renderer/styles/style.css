@@ -520,6 +520,40 @@ body{
     margin: 30px auto;
 }
 
+#profileContainer .takingHome {
+    font-family: "Fjalla One", sans-serif;
+    font-size: clamp(28px, 5vw, 55px);
+    color: whitesmoke;
+    text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.245);
+    cursor: default;
+    user-select: none;
+    background: linear-gradient(to right, whitesmoke 20%, #888 50%, whitesmoke 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2s linear infinite;
+    display: inline-block; 
+    animation: magnify-wave 2s ease-in-out infinite;
+    transform-origin: center;
+}
+@keyframes magnify-wave {
+    0%, 100% { 
+        transform: scale(1); 
+        filter: brightness(100%);
+    }
+    50% { 
+        transform: scale(1.1); /* The "Magnified" size */
+        filter: brightness(130%); /* Adds a slight "glass" glow */
+    }
+}
+@keyframes shimmer {
+    to { background-position: 200% center; }
+}
+#profileContainer .takingHome[hidden] {
+    display: none !important;
+}
+
 #profileContainer .welcomeLine {
     font-family: "Fjalla One", sans-serif;
     font-size: clamp(28px, 5vw, 55px);

@@ -74,9 +74,15 @@ document.getElementById('loginForm').onsubmit = async (e) => {
         localStorage.setItem('refresh_token', data.refresh_token);
         document.getElementById('errorMsg').classList.add('success');
         document.getElementById('errorMsg').innerText = "Login Successful!";
-        setTimeout(() => {
+        setTimeout(()=>{
+            document.querySelector(".takingHome").hidden = false;
             showProfile(data.user);
-        }, 500);
+            //take user to home page
+            setTimeout(() => {
+                window.location.href = "home.html";
+                document.querySelector(".takingHome").hidden = true;
+            }, 2000);
+        },1000)
     } else {
         document.getElementById('errorMsg').classList.remove('success');
         if(response.status === 401){
