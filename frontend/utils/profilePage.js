@@ -45,7 +45,7 @@ async function fetchAndShowJobs() {
         const response = await getJobs("completed", 100);
         const data = await response.json();
         if (response.ok) {
-            await showJobs(data.jobs);  // <-- was: showJobs(data)
+            await showJobs(data.jobs);
         } else {
             localStorage.removeItem('token');
             localStorage.removeItem('refresh_token');
@@ -55,24 +55,27 @@ async function fetchAndShowJobs() {
         document.getElementById("prevJobs").innerHTML = "ERROR: " + err.message;
     }
 }
-async function fetchAndShowResults(jobId) {
-    const response = await getResults(jobId);
-    const data = await response.json();
-    if (response.ok) {
-        return data.dataset_name
-    } else {
-        localStorage.removeItem('token');
-        localStorage.removeItem('refresh_token');
-        showAuth();
-    }
-}
-async function showJobs(jobs){
-    document.getElementById("prevJobs").innerHTML = "";
-    for(const job of jobs){
-        const sampleName = await fetchAndShowResults(job.job_id);
+async function showJobs(jobs) {
+    const list = document.getElementById("prevJobs");
+    list.innerHTML = "";
+    for (const job of jobs) {
         const listItem = document.createElement("li");
-        listItem.innerText = `Sample Name: ${sampleName}`;
-        document.getElementById("prevJobs").appendChild(listItem);
+        const formattedTime = new Date(job.completed_at).toLocaleString([], {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        listItem.innerHTML = `
+            <span class="job-name">
+                <span class="job-dot"></span>
+                Sample Name: ${job.parameters.dataset_name}
+            </span>
+            <span class="job-time">${formattedTime}</span>
+        `;
+        list.appendChild(listItem);
     }
 }
 
