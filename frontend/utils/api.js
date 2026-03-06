@@ -19,7 +19,17 @@ async function refreshAccessToken() {
     return false;
 }
 
-//get information about user from token
+// Returns a valid token, refreshing if needed. Returns null if unauthenticated.
+async function getValidToken() {
+    let token = localStorage.getItem('token');
+    if (!token) {
+        const refreshed = await refreshAccessToken();
+        if (!refreshed) return null;
+        token = localStorage.getItem('token');
+    }
+    return token;
+}
+
 async function getMe() {
     const token = localStorage.getItem('token');
     let response = await fetch(`${API_URL}/auth/me`, {
@@ -70,4 +80,41 @@ async function logoutUser() {
     }
     localStorage.removeItem('token');
     localStorage.removeItem('refresh_token');
+}
+
+async function uploadFile(csvFile, datasetName, catchmentThreshold) {
+    const token = await getValidToken();
+    const formData = new FormData();
+    formData.append('file', csvFile);
+    formData.append('dataset_name', datasetName);
+    formData.append('catchment_threshold_area', catchmentThreshold);
+    return await fetch(`${API_URL}/upload`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` },
+        body: formData
+    });
+}
+
+async function processFile(jobId) {
+    const token = await getValidToken();
+    return await fetch(`${API_URL}/process/${jobId}`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` },
+    });
+}
+
+async function getStatus(jobId) {
+    const token = await getValidToken();
+    return await fetch(`${API_URL}/status/${jobId}`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}` },
+    });
+}
+
+async function getJobs(status,limit){
+    const token = await getValidToken();
+    return await fetch(`${API_URL}/jobs?status=${status}&limit=${limit}`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}` },
+    });
 }
