@@ -118,3 +118,11 @@ async function getJobs(status,limit){
         headers: { 'Authorization': `Bearer ${token}` },
     });
 }
+
+async function getResults(jobId){
+    const token = await getValidToken();
+    return await fetch(`${API_URL}/results/${jobId}`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}` },
+    });
+}

@@ -599,3 +599,80 @@ body{
 #profileContainer .logoutBtn:active {
     transform: scale(0.97);
 }
+
+#jobsContainer {
+    display: none;
+    max-width: 760px;
+    width: 80%;
+    background: linear-gradient(145deg, #1a4a6b, #1a3a5c);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(6, 186, 247, 0.2);
+    border-radius: 20px;
+    margin: 0 auto 40px auto;
+    padding: 30px 40px;
+    box-sizing: border-box;
+}
+
+#jobsContainer.active {
+    display: block;
+}
+
+#jobsContainer .welcomeLine {
+    font-family: "Fjalla One", sans-serif;
+    font-size: clamp(20px, 3vw, 32px);
+    color: whitesmoke;
+    text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.245);
+    margin: 0 0 20px 0;
+    cursor: default;
+    user-select: none;
+}
+
+#prevJobs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#prevJobs li {
+    background: linear-gradient(145deg, #0f3a5c, #0a2a4a);
+    border: 1px solid rgba(6, 186, 247, 0.2);
+    border-radius: 12px;
+    padding: 14px 20px;
+    color: whitesmoke;
+    font-family: "Open Sans", sans-serif;
+    font-size: clamp(13px, 1.5vw, 16px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: default;
+}
+
+#prevJobs li::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(82, 225, 177, 0.9);
+    box-shadow: 0 0 8px rgba(82, 225, 177, 0.6);
+    flex-shrink: 0;
+}
+
+#prevJobs li:hover {
+    border-color: rgba(82, 225, 177, 0.5);
+    box-shadow: 0 4px 20px rgba(82, 225, 177, 0.1);
+}
+
+#prevJobs:empty::after {
+    content: 'No completed jobs yet.';
+    color: rgba(245, 245, 245, 0.35);
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+}

@@ -37,12 +37,50 @@ function showProfile(data) {
     document.getElementById('profileContainer').style.display = 'block';
     document.getElementById('profileName').innerText = data.full_name || 'No name set';
     document.getElementById('profileEmail').innerText = data.email || '';
+    document.getElementById('jobsContainer').classList.add('active');
+}
+
+async function fetchAndShowJobs() {
+    try {
+        const response = await getJobs("completed", 100);
+        const data = await response.json();
+        if (response.ok) {
+            await showJobs(data.jobs);  // <-- was: showJobs(data)
+        } else {
+            localStorage.removeItem('token');
+            localStorage.removeItem('refresh_token');
+            showAuth();
+        }
+    } catch (err) {
+        document.getElementById("prevJobs").innerHTML = "ERROR: " + err.message;
+    }
+}
+async function fetchAndShowResults(jobId) {
+    const response = await getResults(jobId);
+    const data = await response.json();
+    if (response.ok) {
+        return data.dataset_name
+    } else {
+        localStorage.removeItem('token');
+        localStorage.removeItem('refresh_token');
+        showAuth();
+    }
+}
+async function showJobs(jobs){
+    document.getElementById("prevJobs").innerHTML = "";
+    for(const job of jobs){
+        const sampleName = await fetchAndShowResults(job.job_id);
+        const listItem = document.createElement("li");
+        listItem.innerText = `Sample Name: ${sampleName}`;
+        document.getElementById("prevJobs").appendChild(listItem);
+    }
 }
 
 //hides profile and returns to auth
 function showAuth() {
     document.getElementById('authContainer').style.display = '';
     document.getElementById('profileContainer').style.display = 'none';
+    document.getElementById('jobsContainer').classList.remove('active');
 }
 
 //on page load, skip auth entirely if a token already exists
@@ -50,6 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const token = localStorage.getItem('token');
     if (token) {
         fetchAndShowProfile();
+        fetchAndShowJobs();
     }
 });
 
