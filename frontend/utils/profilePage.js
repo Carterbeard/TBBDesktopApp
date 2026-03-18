@@ -37,12 +37,53 @@ function showProfile(data) {
     document.getElementById('profileContainer').style.display = 'block';
     document.getElementById('profileName').innerText = data.full_name || 'No name set';
     document.getElementById('profileEmail').innerText = data.email || '';
+    document.getElementById('jobsContainer').classList.add('active');
+}
+
+async function fetchAndShowJobs() {
+    try {
+        const response = await getJobs("completed", 100);
+        const data = await response.json();
+        if (response.ok) {
+            await showJobs(data.jobs);
+        } else {
+            localStorage.removeItem('token');
+            localStorage.removeItem('refresh_token');
+            showAuth();
+        }
+    } catch (err) {
+        document.getElementById("prevJobs").innerHTML = "ERROR: " + err.message;
+    }
+}
+async function showJobs(jobs) {
+    const list = document.getElementById("prevJobs");
+    list.innerHTML = "";
+    for (const job of jobs) {
+        const listItem = document.createElement("li");
+        const formattedTime = new Date(job.completed_at).toLocaleString([], {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        listItem.innerHTML = `
+            <span class="job-name">
+                <span class="job-dot"></span>
+                Sample Name: ${job.parameters.dataset_name}
+            </span>
+            <span class="job-time">${formattedTime}</span>
+        `;
+        list.appendChild(listItem);
+    }
 }
 
 //hides profile and returns to auth
 function showAuth() {
     document.getElementById('authContainer').style.display = '';
     document.getElementById('profileContainer').style.display = 'none';
+    document.getElementById('jobsContainer').classList.remove('active');
 }
 
 //on page load, skip auth entirely if a token already exists
@@ -50,6 +91,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const token = localStorage.getItem('token');
     if (token) {
         fetchAndShowProfile();
+        fetchAndShowJobs();
     }
 });
 

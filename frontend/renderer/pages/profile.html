@@ -80,13 +80,17 @@
         </div>
 
         <!--Error/success msg output-->
-        <p id="errorMsg"></p>
+        <p id="errorMsg" class="errorMsgStyle"></p>
     </div>
     <div id="profileContainer">
         <p class="takingHome" hidden>Taking to home page...</p>
         <p class="welcomeLine">Welcome, <span id="profileName"></span></p>
         <p class="profileEmail" id="profileEmail"></p>
         <button class="logoutBtn" id="logoutBtn">Logout</button>
+    </div>
+    <div id="jobsContainer">
+        <p class="welcomeLine">Past Jobs:</p>
+        <ul id="prevJobs"></ul>
     </div>
 </body>
 <script src="../../utils/api.js"></script>
